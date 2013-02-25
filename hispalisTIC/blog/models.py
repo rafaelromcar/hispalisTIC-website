@@ -1,5 +1,6 @@
 from django.db import models
 from django.db.models import permalink
+from django.forms import ModelForm
 
 # Create your models here.
 class Blog(models.Model):
@@ -26,3 +27,11 @@ class Category(models.Model):
 	@permalink
 	def get_absolute_url(self):
 		return ('view_blog_category', None, {'slug': self.slug})
+
+class CategoryForm(ModelForm):
+	class Meta:
+		model = Category
+
+class BlogForm(ModelForm):
+	class Meta:
+		model = Blog

@@ -1,5 +1,6 @@
 from blog.models import Blog, Category
-from django.shortcuts import render_to_response, get_object_or_404
+from django.shortcuts import render_to_response, get_object_or_404, render
+from django.http import HttpResponseRedirect
 
 # Create your views here.
 
@@ -20,3 +21,14 @@ def view_category(request, slug):
 		'category': category,
 		'posts': Blog.objects.filter(category=category)[:5]
 	})
+
+# Forms views
+
+def new_category_form(request):
+	if request.method == 'POST':
+		form = CategoryForm(request.POST)
+		if form.is_valid():
+			return HttpResponseRedirect('')
+	else:
+		form = new_category_form()
+	return render(request, 'new_category.html', {'form': form})        
