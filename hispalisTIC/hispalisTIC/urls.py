@@ -18,9 +18,10 @@ urlpatterns = patterns('',
 	# Blog app
 	url(r'^$', 'blog.views.index'),
 	url(r'^blog/view/(?P<slug>[^\.]+).html', 
-    	'hispalisTIC.blog.views.view_post', 
+    	'blog.views.view_post', 
     	name='view_blog_post'),
 	url(r'^blog/category/(?P<slug>[^\.]+).html', 
-    	'hispalisTIC.blog.views.view_category', 
-    	name='view_blog_category')
+    	'blog.views.view_category', 
+    	name='view_blog_category'),
+	url(r'^blog/new_category/', 'blog.views.new_category_form', name='new_category')
 )

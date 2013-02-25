@@ -30,5 +30,5 @@ def new_category_form(request):
 		if form.is_valid():
 			return HttpResponseRedirect('')
 	else:
-		form = new_category_form()
+		form = new_category_form(request)
 	return render(request, 'new_category.html', {'form': form})        
