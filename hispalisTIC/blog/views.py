@@ -28,7 +28,8 @@ def new_category_form(request):
 	if request.method == 'POST':
 		form = CategoryForm(request.POST)
 		if form.is_valid():
+			form.save()
 			return HttpResponseRedirect('')
 	else:
-		form = new_category_form(request)
-	return render(request, 'new_category.html', {'form': form})        
+		form = new_category_form()
+	return render_to_response("new_category.html", RequestContext(request, {'form' : form}))        

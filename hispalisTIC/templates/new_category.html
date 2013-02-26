@@ -1,6 +1,4 @@
-{% extends 'base.html' %}
-
-{% block title %}New category form{% endblock %}
-
-<h3>New category form</h3>
-{% form.as_ul(request.POST)  %}
+<form action="" method="POST" enctype="multipart/form-data">  {% csrf_token %}
+{{ form.as_ul }}
+<input type="submit" value="Submit" />
+</form>
