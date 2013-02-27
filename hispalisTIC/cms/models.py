@@ -23,7 +23,7 @@ class Category(models.Model):
 	slug = models.SlugField(max_length=100, db_index=True)
 
 	def __unicode__(self):
-		return '%S' % self.title
+		return '%s' % self.title
 
 	@permalink
 	def get_absolute_url(self):
