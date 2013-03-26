@@ -26,5 +26,6 @@ urlpatterns = patterns('',
 	# CMS app - forms url
 	url(r'^blog/new_post/', 'cms.views.new_post_form', name='new_post'),
 	url(r'^blog/new_category/', 'cms.views.new_category_form', name='new_category'),
-	url(r'^page/new_page/', 'cms.views.new_page_form', name='new_page')
+	url(r'^page/new_page/', 'cms.views.new_page_form', name='new_page'),
+	url(r'/new_menu/', 'cms.views.new_menu_form', name='new_menu')
 )

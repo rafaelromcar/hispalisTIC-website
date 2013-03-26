@@ -34,6 +34,8 @@ class Page(models.Model):
 	slug = models.SlugField(max_length=100, unique=True)
 	body = models.TextField()
 	posted = models.DateField(db_index=True, auto_now_add=True)
+	
+	menus = models.ManyToManyField('cms.Menu')
 
 	def __unicode__(self):
 		return '%s' % self.title
@@ -41,6 +43,9 @@ class Page(models.Model):
 	@permalink
 	def get_absolute_url(self):
 		return ('view_page', None, {'slug': self.slug})
+
+class Menu(models.Model):
+	title = models.CharField(max_length=100)
 
 # Forms
 
@@ -55,3 +60,7 @@ class PostForm(ModelForm):
 class PageForm(ModelForm):
 	class Meta:
 		model = Page
+
+class MenuForm(ModelForm):
+	class Meta:
+		model = Menu

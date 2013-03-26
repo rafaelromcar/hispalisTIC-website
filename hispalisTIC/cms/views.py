@@ -59,3 +59,13 @@ def new_page_form(request):
 	else:
 		form = PageForm()
 	return render(request, "new_page.html", {'form' : form})
+
+def new_menu_form(request):
+	if request.method == 'POST':
+		form = MenuForm(request.POST)
+		if form.is_valid():
+			form.save()
+			return HttpReponseRedirect('')
+	else:
+		form = MenuForm()
+	return render(request, "new_menu.html", {'form' : form})
