@@ -16,16 +16,21 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
 
 	# Index & other
-	url(r'^$', 'cms.views.index'),
+	url(r'^$', 'cms.views.index', name='home'),
 
 	# CMS app
 	url(r'^blog/post/(?P<slug>[^\.]+)/', 'cms.views.view_post',	name='view_post'),
 	url(r'^blog/category/(?P<slug>[^\.]+)/', 'cms.views.view_category', name='view_category'),
 	url(r'^page/(?P<slug>[^\.]+)/', 'cms.views.view_page', name='page'),
+	url(r'technologies/', 'cms.views.index', name = 'technologies'),
+	url(r'services/', 'cms.views.index', name = 'services'),
+	url(r'services/(?P<slug>[^\.]+)/', 'cms.views.view_page', name='service'),
+	
+	# Contact form
+	url(r'^$', 'cms.views.index', name='contact'),
 
 	# CMS app - forms url
 	url(r'^blog/new_post/', 'cms.views.new_post_form', name='new_post'),
 	url(r'^blog/new_category/', 'cms.views.new_category_form', name='new_category'),
-	url(r'^page/new_page/', 'cms.views.new_page_form', name='new_page'),
-	url(r'/new_menu/', 'cms.views.new_menu_form', name='new_menu')
+	url(r'^page/new_page/', 'cms.views.new_page_form', name='new_page')
 )
