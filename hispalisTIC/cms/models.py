@@ -9,7 +9,7 @@ class Post(models.Model):
 	slug = models.SlugField(max_length=100, unique=True)
 	body = models.TextField()
 	posted = models.DateField(db_index=True, auto_now_add=True)
-	category = models.ForeignKey('cms.Category')
+	category = models.ForeignKey('Category')
 
 	def __unicode__(self):
 		return '%s' % self.title
@@ -35,8 +35,6 @@ class Page(models.Model):
 	body = models.TextField()
 	posted = models.DateField(db_index=True, auto_now_add=True)
 	
-	menus = models.ManyToManyField('cms.Menu')
-
 	def __unicode__(self):
 		return '%s' % self.title
 
@@ -44,23 +42,26 @@ class Page(models.Model):
 	def get_absolute_url(self):
 		return ('view_page', None, {'slug': self.slug})
 
-class Menu(models.Model):
+class Technology(models.Model):
 	title = models.CharField(max_length=100)
+	slug = models.SlugField(max_length=100, unique=True)
+	description = models.TextField()
+	
+	def __unicode__(self):
+		return self.title
 
-# Forms
+	@permalink
+	def get_absolute_url(self):
+		return('view_tech',None, {'slug': self.slug})
 
-class CategoryForm(ModelForm):
-	class Meta:
-		model = Category
+class Service(models.Model):
+	title = models.CharField(max_length=100)
+	slug = models.SlugField(max_length=100, unique=True)
+	description = models.TextField()
+	
+	def __unicode__(self):
+		return self.title
 
-class PostForm(ModelForm):
-	class Meta:
-		model = Post
-
-class PageForm(ModelForm):
-	class Meta:
-		model = Page
-
-class MenuForm(ModelForm):
-	class Meta:
-		model = Menu
+	@permalink
+	def get_absolute_url(self):
+		return('view_service', None, {'slug': self.slug})
