@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>Hispalis TIC - {% block head_title %}{% endblock %}</title>
+    </head>
+    <body>
+		<div id="page">
+			<div id="left.bar">
+				<div id="logo">
+					<a href="{% url home %}"><img src="{{ STATIC_URL }}hispalis-tic.png" alt="Hispalis TIC"/></a>
+				</div>
+				<div id="nav.menu">
+					<ul>
+                    <li><a href="{% url home %}">Home</a></li>
+					<li><a href="{% url services %}">Services</a></li>
+                    <li><a href="{% url technologies %}">Technologies</a></li>
+                    <li><a href="{% url contact %}">Contact</a></li>
+					</ul>
+				</div>
+			</div>
+			<div id="content">
+			{% block content %}
+			{% endblock %}
+			</div>
+		</div>
+    </body>
+</html>
