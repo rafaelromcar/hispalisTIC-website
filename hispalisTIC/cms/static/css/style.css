@@ -1,0 +1,72 @@
+/*
+* Hispalis TIC website css
+*/
+
+body {
+	background: #6699cc url('../images/bg.png') repeat-x;
+	font-family: verdana, geneva, sans-serif;
+	font-size: 0.85em, line-height 1.5em;
+	color: #333;
+}
+
+h1 {
+	color: #ffffff;
+}
+
+#page {
+	margin-top: 15px;
+	margin-bottom: 15px;
+	box-shadow: 0 2px 6px rgba(100, 100, 100, 0.3);
+	border-radius: 20px;
+	height: 640px;
+	width: 960px;
+	overflow-y: scroll;
+	margin: 0 auto;
+	background: #ffffff;
+}
+
+/*
+* Menu and logo styles
+*/
+
+#lef.bar {
+	border-right: 1px solid #757575;
+	margin-top: 40px;
+	margin-bottom: 40px;
+	width: 125px;
+	height: 550px;
+	padding-left: 18px;
+	position: fixed;
+	top: 40px;
+	clear: both;
+}
+
+#logo {
+	width: 100px;
+	margin-left: 10px;
+	margin-bottom: 40px;
+	top: 75px;	
+}
+
+#nav.menu {
+
+}
+
+/*
+* Content styles
+*/
+
+#primary {
+	float:right;
+	width: 835px;
+}
+
+#content.title {
+	font-size: 1.80em;
+	color: #ffffff;
+	background: #6699cc;
+}
+
+#content {
+
+}
