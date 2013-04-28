@@ -27,7 +27,7 @@ class Category(models.Model):
 
 	@permalink
 	def get_absolute_url(self):
-		return ('view_blog_category', None, {'slug': self.slug})
+		return ('view_category', None, {'slug': self.slug})
 
 class Page(models.Model):
 	title = models.CharField(max_length=100)
@@ -49,10 +49,6 @@ class Technology(models.Model):
 	
 	def __unicode__(self):
 		return self.title
-
-	@permalink
-	def get_absolute_url(self):
-		return('view_tech',None, {'slug': self.slug})
 
 class Service(models.Model):
 	title = models.CharField(max_length=100)
