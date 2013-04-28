@@ -1,0 +1,19 @@
+{% extends 'base.html' %} 
+{% block head_title %} Technologies {% endblock %}
+{% block contentTitle %} Technologies {% endblock %}
+
+{% block content %}
+    {% if technologies %}
+        <ul>
+        {% for tech in technologies %}
+            <div class="tech">
+				<div class="tech.logo"><img src=""></div>
+				<div class="tech.title">{{ tech.title }}</div>
+				<div class="tech.description">{{ tech.description }}</div>
+			</div>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>There are no technologies.</p>
+    {% endif %}
+{% endblock %}

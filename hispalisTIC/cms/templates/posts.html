@@ -1,0 +1,20 @@
+{% extends 'base.html' %} 
+{% block head_title %} Posts {% endblock %}
+{% block contentTitle %} Posts {% endblock %}
+
+{% block content %}
+    {% if posts %}
+        <ul>
+        {% for post in posts %}
+            <div class="post">
+				<div class="postTitle">{{ post.title }}</div>
+				<div class="postDate">{{ post.posted }}</div>
+				<div class="postCategory">{{ post.category }}</div>
+				<div class="postBody">{{ post.body }}</div>
+			</div>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>There are no posts.</p>
+    {% endif %}
+{% endblock %}

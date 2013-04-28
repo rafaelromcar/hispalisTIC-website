@@ -1,0 +1,15 @@
+{% extends 'base.html' %} 
+{% block head_title %} Services {% endblock %}
+{% block contentTitle %} Services {% endblock %}
+
+{% block content %}
+    {% if services %}
+        <ul>
+        {% for serv in services %}
+            <li><a href="{{ serv.get_absolute_url }}">{{ serv.title }}</a></li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>There are no services.</p>
+    {% endif %}
+{% endblock %}

@@ -1,25 +1,32 @@
 <html>
     <head>
         <title>Hispalis TIC - {% block head_title %}{% endblock %}</title>
+		<!--<link rel="stylesheet" href="/static/css/style.css" type="text/css" media="screen">-->
     </head>
     <body>
 		<div id="page">
 			<div id="left.bar">
 				<div id="logo">
-					<a href="{% url home %}"><img src="{{ STATIC_URL }}hispalis-tic.png" alt="Hispalis TIC"/></a>
+					<a href="{% url home %}"><img src="/static/images/hispalis-tic.png" alt="Logo"/></a>
 				</div>
 				<div id="nav.menu">
 					<ul>
                     <li><a href="{% url home %}">Home</a></li>
+                    <li><a href="{% url blog %}">Blog</a></li>
 					<li><a href="{% url services %}">Services</a></li>
                     <li><a href="{% url technologies %}">Technologies</a></li>
                     <li><a href="{% url contact %}">Contact</a></li>
 					</ul>
 				</div>
 			</div>
-			<div id="content">
-			{% block content %}
-			{% endblock %}
+			<div id="primary">
+				<div id="content.title">
+					{% block contentTitle %}{% endblock %}
+				</div>
+				<div id="content">
+					{% block content %}
+					{% endblock %}
+				</div>
 			</div>
 		</div>
     </body>

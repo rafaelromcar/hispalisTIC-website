@@ -1,0 +1,15 @@
+{% extends 'base.html' %} 
+{% block head_title %} Categories {% endblock %}
+{% block contentTitle %} Categories {% endblock %}
+
+{% block content %}
+    {% if categories %}
+        <ul>
+        {% for cat in categories %}
+            <li><a href="{{ cat.get_absolute_url }}">{{ cat.title }}</a></li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>There are no categories.</p>
+    {% endif %}
+{% endblock %}
